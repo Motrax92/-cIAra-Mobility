@@ -1,0 +1,24 @@
+-- ============================================
+-- PROJET SQL - cIAra Mobility
+-- Quête 1 : Découverte du SQL
+-- Notions : SELECT / FROM / WHERE
+-- ============================================
+
+-- 1. Afficher tous les véhicules
+SELECT *
+FROM vehicule;
+
+-- 2. Afficher uniquement les véhicules disponibles
+SELECT *
+FROM vehicule
+WHERE etat = 'Disponible';
+
+-- 3. Afficher les véhicules situés dans une ville donnée (ex : Strasbourg)
+SELECT *
+FROM vehicule
+WHERE ville = 'Strasbourg';
+
+-- 4. Afficher les véhicules ayant une autonomie supérieure à 400 km
+SELECT *
+FROM vehicule
+WHERE autonomie_km > 400;
