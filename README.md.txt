@@ -1,5 +1,5 @@
 
-# 🚗 Projet SQL – cIAra Mobility :
+# Projet SQL – cIAra Mobility :
 cIAra Mobility est une entreprise fictive spécialisée dans la location de véhicules électriques partagés 
 (voitures, scooters, trottinettes, vélos électriques) dans plusieurs grandes villes françaises.
 
@@ -59,7 +59,7 @@ notamment pour :
 - Le suivi des locations
 - La traçabilité des véhicules
 
-# 📊 Rapport d’Analyse Ananya Darshini PAJANY 
+# Rapport d’Analyse Ananya Darshini PAJANY 
 ## C. Choix Techniques et Syntaxe SQL
 Pour les Quêtes 1 et 2, j’ai principalement utilisé :
 
@@ -106,3 +106,28 @@ Ces difficultés m'ont permis de mieux comprendre :
 - Le fonctionnement des contraintes relationnelles
 - L’importance de la cohérence des noms de colonnes
 - L’importance de tester chaque requête progressivement
+
+# Rapport d’Analyse Joey SPORTES
+
+Pour ma partie sur les jointures (Quête 3), j’ai travaillé principalement sur la liaison entre les tables location,
+client, vehicule et station afin d’afficher des informations combinées
+(par exemple : une location avec le nom du client et le véhicule concerné).
+
+J’ai utilisé la syntaxe JOIN ... ON ... pour relier les clés étrangères de la table location avec les clés primaires des autres tables,
+ ce qui m’a permis d’afficher des données cohérentes issues de plusieurs tables.
+
+J’ai notamment mis en place des jointures simples (INNER JOIN) pour récupérer : les locations avec le nom et le prénom du client,
+les locations avec la marque et le modèle du véhicule, 
+ainsi que les stations de départ et d’arrivée pour chaque location.
+
+L’utilisation d’alias de tables (par exemple station_depart et station_arrivee) a 
+été importante pour pouvoir joindre deux fois la table station dans une même requête, tout en gardant une requête lisible.
+
+Parmi les difficultés rencontrées, j’ai parfois eu des erreurs liées à des oublis ou inversions 
+de colonnes dans les conditions de jointure (ON location.id_client = client.id_client, etc.), ainsi que 
+des résultats vides lorsque la jointure était incorrecte.
+
+ Pour les résoudre, j’ai pris l’habitude de tester les jointures table 
+par table (d’abord location + client, puis location + vehicule, etc.) et de vérifier la structure de chaque 
+table afin de toujours utiliser les bons champs de clé primaire et de clé étrangère.
+
