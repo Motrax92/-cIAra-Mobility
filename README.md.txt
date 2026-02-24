@@ -131,3 +131,128 @@ des résultats vides lorsque la jointure était incorrecte.
 par table (d’abord location + client, puis location + vehicule, etc.) et de vérifier la structure de chaque 
 table afin de toujours utiliser les bons champs de clé primaire et de clé étrangère.
 
+# Rapport d'Analyse Mohamed TRAORE 
+
+
+
+#  Quête 4 – Fonctions d’agrégation
+
+## Objectif
+
+L’objectif de la Quête 4 était d’analyser les données globales de l’entreprise à l’aide de fonctions d’agrégation SQL.
+
+J’ai utilisé principalement les fonctions `COUNT()` et `AVG()` ainsi que la clause `GROUP BY`.
+
+
+## Requêtes réalisées
+
+### Nombre total de véhicules
+
+J’ai utilisé `COUNT(*)` pour déterminer la taille totale du parc de véhicules.
+
+Cette requête me permet d’obtenir une vision globale du nombre de véhicules enregistrés dans la base.
+
+
+
+### Nombre de véhicules par ville
+
+J’ai utilisé `GROUP BY ville` afin de regrouper les véhicules selon leur ville, puis `COUNT(*)` pour obtenir le nombre de véhicules dans chaque ville.
+
+Cela me permet d’identifier les villes où l’entreprise est la plus présente.
+
+
+
+### Autonomie moyenne des véhicules
+
+J’ai utilisé la fonction `AVG(autonomie_km)` pour calculer l’autonomie moyenne du parc.
+
+Cette donnée me permet d’évaluer la performance globale des véhicules.
+
+
+
+### Nombre de locations par client
+
+J’ai réalisé une jointure entre les tables `client` et `location`, puis utilisé `GROUP BY` et `COUNT()` afin de déterminer le nombre de locations effectuées par chaque client.
+
+Cette analyse me permet d’identifier les clients les plus actifs.
+
+
+
+## Difficultés rencontrées
+
+La principale difficulté concernait l’utilisation correcte de `GROUP BY`, notamment l’obligation d’inclure toutes les colonnes non agrégées présentes dans le `SELECT`.
+
+Pour résoudre ce problème, j’ai pris l’habitude de tester mes requêtes progressivement et de vérifier la structure des tables afin d’utiliser correctement les clés primaires et étrangères.
+
+
+
+# Quête 5 – Cas métier
+
+## Objectif
+
+L’objectif de la Quête 5 était de répondre à des problématiques métier concrètes en combinant filtrage, regroupement, tri et jointures.
+
+
+
+## Requêtes réalisées
+
+### Les trois véhicules les plus autonomes disponibles
+
+J’ai utilisé :
+
+* `WHERE` pour filtrer les véhicules disponibles
+* `ORDER BY autonomie_km DESC` pour trier du plus grand au plus petit
+* `LIMIT 3` pour limiter le résultat
+
+Cette requête me permet d’identifier les véhicules les plus performants actuellement disponibles.
+
+
+
+### Ville possédant le plus de véhicules disponibles
+
+J’ai combiné :
+
+* `WHERE` pour filtrer
+* `GROUP BY ville` pour regrouper
+* `COUNT()` pour compter
+* `ORDER BY DESC` pour trier
+* `LIMIT 1` pour obtenir la ville principale
+
+Cela me permet d’identifier la zone la mieux équipée.
+
+
+
+### Clients ayant effectué au moins deux locations
+
+J’ai utilisé :
+
+* `JOIN` pour relier les tables
+* `GROUP BY` pour regrouper par client
+* `HAVING COUNT(...) >= 2` pour filtrer les groupes
+
+La clause `HAVING` est utilisée car le filtrage s’effectue après le regroupement.
+
+Cette requête me permet d’identifier les clients les plus fidèles.
+
+
+
+### Véhicules n’ayant jamais été loués
+
+J’ai utilisé un `LEFT JOIN` entre `vehicule` et `location`, puis filtré les résultats avec `IS NULL`.
+
+Le `LEFT JOIN` me permet de conserver tous les véhicules, même ceux sans location associée.
+
+Cette requête me permet d’identifier les véhicules sous-utilisés.
+
+
+## Conclusion
+
+Les Quêtes 4 et 5 m’ont permis de :
+
+* maîtriser les fonctions d’agrégation
+* comprendre l’utilisation avancée de `GROUP BY` et `HAVING`
+* manipuler différents types de jointures
+* répondre à des besoins métier concrets à partir d’une base de données relationnelle
+
+
+
